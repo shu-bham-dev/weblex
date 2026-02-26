@@ -22,6 +22,8 @@ import {
 } from 'lucide-react';
 import { useRef } from 'react';
 import Link from 'next/link';
+import GlobalHeader from './GlobalHeader';
+import GlobalFooter from './GlobalFooter';
 
 export default function HomePage() {
   const heroRef = useRef(null);
@@ -35,38 +37,8 @@ export default function HomePage() {
 
   return (
     <div className="bg-black text-white overflow-hidden">
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 py-6"
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <motion.div 
-            className="text-2xl tracking-tight"
-            whileHover={{ scale: 1.05 }}
-          >
-            <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-              Weblex
-            </span>
-          </motion.div>
-          <div className="hidden md:flex items-center gap-8">
-            <a href="#about" className="text-gray-300 hover:text-white transition-colors">About</a>
-            <a href="#services" className="text-gray-300 hover:text-white transition-colors">Services</a>
-            <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link>
-            <Link href="/contact" className="text-gray-300 hover:text-white transition-colors">Contact</Link>
-          </div>
-          <Link href="/get-your-website">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 rounded-full font-medium"
-            >
-              Get Started
-            </motion.button>
-          </Link>
-        </div>
-      </motion.nav>
+      {/* Global Header */}
+      <GlobalHeader />
 
       {/* Hero Section - Full Viewport WOW */}
       <section ref={heroRef} className="relative min-h-screen flex items-center justify-center overflow-hidden">
@@ -118,22 +90,12 @@ export default function HomePage() {
           style={{ opacity: heroOpacity, scale: heroScale }}
           className="relative z-10 max-w-6xl mx-auto px-6 text-center"
         >
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-            className="mb-6 inline-block"
-          >
-            <span className="px-4 py-2 bg-gradient-to-r from-cyan-500/10 to-purple-500/10 border border-cyan-500/30 rounded-full text-cyan-400 text-sm backdrop-blur-sm">
-              Premium Web Development
-            </span>
-          </motion.div>
 
           <motion.h1
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="mb-8 text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight"
+            className="mb-8 text-6xl md:text-8xl lg:text-9xl leading-none tracking-tight mt-25"
           >
             <span className="block mb-4">We Don't Build</span>
             <span className="block bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
@@ -668,63 +630,8 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-16 px-6 bg-black border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="text-2xl mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Weblex
-                </span>
-              </div>
-              <p className="text-gray-400">
-                Premium web development for ambitious businesses.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Web Development</li>
-                <li className="hover:text-white transition-colors cursor-pointer">E-Commerce</li>
-                <li className="hover:text-white transition-colors cursor-pointer">SaaS Development</li>
-                <li className="hover:text-white transition-colors cursor-pointer">UI/UX Design</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">About</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Portfolio</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Process</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Contact</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Connect</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Twitter</li>
-                <li className="hover:text-white transition-colors cursor-pointer">LinkedIn</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Instagram</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Dribbble</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2026 Weblex Web Development. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-gray-400 text-sm">
-              <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Global Footer */}
+      <GlobalFooter />
     </div>
   );
 }

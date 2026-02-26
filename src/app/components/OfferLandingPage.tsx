@@ -9,7 +9,6 @@ import {
   Shield,
   Star,
   TrendingUp,
-  Users,
   Phone,
   AlertCircle,
   Award,
@@ -32,10 +31,10 @@ export default function OfferLandingPage() {
   });
   const [submitted, setSubmitted] = useState(false);
   
-  // Countdown Timer - 24 hours from now
+  // Countdown Timer - 3 hours 22 minutes from now
   const [timeLeft, setTimeLeft] = useState({
-    hours: 23,
-    minutes: 59,
+    hours: 3,
+    minutes: 22,
     seconds: 59
   });
 
@@ -77,7 +76,7 @@ export default function OfferLandingPage() {
   return (
     <div className="bg-gray-950 text-white overflow-hidden">
       {/* Sticky Mobile CTA */}
-      <motion.div 
+      <motion.div
         initial={{ y: 100 }}
         animate={{ y: 0 }}
         className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-gradient-to-r from-orange-600 to-red-600 shadow-2xl md:hidden"
@@ -695,9 +694,6 @@ export default function OfferLandingPage() {
                   <CheckCircle2 className="w-10 h-10" />
                 </div>
                 <h3 className="text-3xl md:text-4xl mb-4">Slot Reserved Successfully! 🎉</h3>
-                <p className="text-xl text-gray-300 mb-4">
-                  Thank you for booking! We'll call you within 30 minutes to discuss your website.
-                </p>
                 <div className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 rounded-full">
                   <Phone className="w-5 h-5" />
                   <span>Expect our call soon</span>
@@ -800,11 +796,6 @@ export default function OfferLandingPage() {
                   >
                     Book My Website for ₹4,999
                   </motion.button>
-
-                  <p className="text-center text-sm text-gray-400 flex items-center justify-center gap-2">
-                    <Phone className="w-4 h-4" />
-                    We'll call you within 30 minutes
-                  </p>
                 </form>
               </div>
             )}
@@ -868,8 +859,31 @@ export default function OfferLandingPage() {
 
       {/* Footer */}
       <footer className="relative py-8 px-4 bg-black border-t border-gray-800">
-        <div className="max-w-6xl mx-auto text-center text-gray-400 text-sm">
-          <p>© 2026 Weblex Web Development. All rights reserved.</p>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center text-gray-400 text-sm">
+            <p className="mb-4">© 2026 Weblex Web Development. All rights reserved.</p>
+            
+            <div className="text-xs text-gray-500 max-w-2xl mx-auto">
+              <p className="mb-2">
+                This website uses cookies, pixels, and similar tracking technologies for analytics, functionality, and advertising purposes, including Meta Pixel and Google Ads tracking for personalized advertising.
+              </p>
+              <p className="mb-2">
+                By continuing to use this site, you consent to our use of these technologies as described in our{' '}
+                <Link href="/privacy-policy" className="text-orange-400 hover:underline">
+                  Privacy Policy
+                </Link>.
+                You can manage your cookie preferences through your browser settings or opt out of personalized advertising through the{' '}
+                <a
+                  href="https://optout.aboutads.info"
+                  className="text-orange-400 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Digital Advertising Alliance
+                </a>.
+              </p>
+            </div>
+          </div>
         </div>
       </footer>
     </div>

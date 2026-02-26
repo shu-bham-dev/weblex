@@ -17,6 +17,8 @@ import {
   Github
 } from 'lucide-react';
 import { useState } from 'react';
+import GlobalHeader from './GlobalHeader';
+import GlobalFooter from './GlobalFooter';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -56,42 +58,11 @@ export default function ContactPage() {
 
   return (
     <div className="bg-black text-white min-h-screen">
-      {/* Navigation */}
-      <motion.nav 
-        initial={{ y: -100 }}
-        animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 px-6 py-6 bg-black/80 backdrop-blur-lg border-b border-white/10"
-      >
-        <div className="max-w-7xl mx-auto flex items-center justify-between">
-          <Link href="/">
-            <motion.div 
-              className="text-2xl tracking-tight cursor-pointer"
-              whileHover={{ scale: 1.05 }}
-            >
-              <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                Weblex
-              </span>
-            </motion.div>
-          </Link>
-          <div className="hidden md:flex items-center gap-8">
-            <Link href="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-            <Link href="/portfolio" className="text-gray-300 hover:text-white transition-colors">Portfolio</Link>
-            <Link href="/contact" className="text-white">Contact</Link>
-          </div>
-          <Link href="/get-your-website">
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-gradient-to-r from-cyan-500 to-blue-600 px-6 py-3 rounded-full font-medium"
-            >
-              Get Started
-            </motion.button>
-          </Link>
-        </div>
-      </motion.nav>
+      {/* Global Header */}
+      <GlobalHeader />
 
       {/* Hero Section */}
-      <section className="relative pt-32 pb-20 px-6 overflow-hidden">
+      <section className="relative pt-20 pb-20 px-6 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-black via-purple-950 to-blue-950"></div>
         <motion.div 
           className="absolute top-20 left-0 w-[600px] h-[600px] bg-purple-500 rounded-full blur-[150px] opacity-20"
@@ -169,28 +140,28 @@ export default function ContactPage() {
                   {
                     icon: <Mail className="w-6 h-6" />,
                     title: "Email Us",
-                    content: "hello@weblex.dev",
-                    link: "mailto:hello@weblex.dev",
+                    content: "hello@weblex.xyz",
+                    link: "mailto:hello@weblex.xyz",
                     gradient: "from-cyan-500 to-blue-600"
                   },
                   {
                     icon: <Phone className="w-6 h-6" />,
                     title: "Call Us",
-                    content: "+91 98765 43210",
-                    link: "tel:+919876543210",
+                    content: "+91 70075 92373",
+                    link: "tel:+917007592373",
                     gradient: "from-purple-500 to-pink-600"
                   },
                   {
                     icon: <MessageCircle className="w-6 h-6" />,
                     title: "WhatsApp",
-                    content: "+91 98765 43210",
-                    link: "https://wa.me/919876543210",
+                    content: "+91 70075 92373",
+                    link: "https://wa.me/917007592373",
                     gradient: "from-green-500 to-emerald-600"
                   },
                   {
                     icon: <MapPin className="w-6 h-6" />,
                     title: "Visit Us",
-                    content: "Mumbai, Maharashtra, India",
+                    content: "New Delhi, India",
                     link: null,
                     gradient: "from-orange-500 to-red-600"
                   }
@@ -459,8 +430,7 @@ export default function ContactPage() {
             <div className="aspect-[21/9] bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center">
               <div className="text-center">
                 <MapPin className="w-16 h-16 mx-auto mb-4 text-cyan-400" />
-                <h3 className="text-2xl mb-2">Mumbai, Maharashtra</h3>
-                <p className="text-gray-400">Interactive map coming soon</p>
+                <h3 className="text-2xl mb-2">New Delhi, India</h3>
               </div>
             </div>
           </motion.div>
@@ -519,62 +489,8 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="relative py-16 px-6 bg-black border-t border-white/10">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-12 mb-12">
-            <div>
-              <div className="text-2xl mb-4">
-                <span className="bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent">
-                  Weblex
-                </span>
-              </div>
-              <p className="text-gray-400">
-                Premium web development for ambitious businesses.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Services</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Web Development</li>
-                <li className="hover:text-white transition-colors cursor-pointer">E-Commerce</li>
-                <li className="hover:text-white transition-colors cursor-pointer">SaaS Development</li>
-                <li className="hover:text-white transition-colors cursor-pointer">UI/UX Design</li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Company</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li><Link href="/" className="hover:text-white transition-colors">Home</Link></li>
-                <li><Link href="/portfolio" className="hover:text-white transition-colors">Portfolio</Link></li>
-                <li><Link href="/contact" className="hover:text-white transition-colors">Contact</Link></li>
-              </ul>
-            </div>
-            
-            <div>
-              <h4 className="mb-4">Connect</h4>
-              <ul className="space-y-2 text-gray-400">
-                <li className="hover:text-white transition-colors cursor-pointer">Twitter</li>
-                <li className="hover:text-white transition-colors cursor-pointer">LinkedIn</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Instagram</li>
-                <li className="hover:text-white transition-colors cursor-pointer">Dribbble</li>
-              </ul>
-            </div>
-          </div>
-          
-          <div className="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-gray-400 text-sm">
-              © 2026 Weblex Web Development. All rights reserved.
-            </p>
-            <div className="flex gap-6 text-gray-400 text-sm">
-              <span className="hover:text-white transition-colors cursor-pointer">Privacy Policy</span>
-              <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      {/* Global Footer */}
+      <GlobalFooter />
     </div>
   );
 }
